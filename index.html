@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rahmani (Azariah) Malabre — Applied AI &amp; Data Science</title>
+<meta name="description" content="Personal portfolio of Rahmani (Azariah) Malabre — Applied Artificial Intelligence and Data Science. Boston, MA. Designing and building with frontier models: research, systems, interfaces." />
+<meta name="author" content="Rahmani Malabre" />
+<meta name="keywords" content="Rahmani Malabre, Azariah, Applied AI, Artificial Intelligence, Data Science, Wentworth Institute of Technology, Boston, Portfolio, Robotics, Physical AI" />
+<link rel="canonical" href="https://rahmanimalabre.com/" />
+<meta name="theme-color" content="#000000" />
+<meta name="robots" content="index, follow" />
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="profile" />
+<meta property="og:site_name" content="Rahmani Malabre" />
+<meta property="og:title" content="Rahmani (Azariah) Malabre — Applied AI &amp; Data Science" />
+<meta property="og:description" content="Personal portfolio. Applied AI and Data Science. Designing and building with frontier models." />
+<meta property="og:url" content="https://rahmanimalabre.com/" />
+<meta property="og:image" content="https://rahmanimalabre.com/og.png" />
+<meta property="profile:first_name" content="Rahmani" />
+<meta property="profile:last_name" content="Malabre" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Rahmani (Azariah) Malabre — Applied AI &amp; Data Science" />
+<meta name="twitter:description" content="Personal portfolio. Applied AI and Data Science." />
+<meta name="twitter:image" content="https://rahmanimalabre.com/og.png" />
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+<!-- Structured data: Person (helps Google build a knowledge card for your name) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rahmani Malabre",
+  "alternateName": "Azariah",
+  "jobTitle": "Applied AI & Data Science",
+  "description": "Applied AI student and Facility Operations Intern at Analog Devices. Designing and building with frontier models.",
+  "url": "https://rahmanimalabre.com/",
+  "email": "mailto:rahmalabre@gmail.com",
+  "sameAs": [
+    "https://www.linkedin.com/in/rahmanim/",
+    "https://github.com/r-azariah"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Boston",
+    "addressRegion": "MA",
+    "addressCountry": "US"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Wentworth Institute of Technology"
+  },
+  "knowsAbout": [
+    "Applied Artificial Intelligence",
+    "Data Science",
+    "Robotics",
+    "Physical AI",
+    "Python",
+    "AI-assisted Development"
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#000;
+    --fg-rgb:244 244 245;
+    --ring-rgb:255 255 255;
+    --fg:rgb(var(--fg-rgb));
+    --font:'Space Mono', monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    background:var(--bg); color:var(--fg);
+    font-family:var(--font);
+    overflow:hidden; cursor:none;
+    -webkit-font-smoothing:antialiased; text-rendering:geometricPrecision;
+  }
+  a{color:inherit; text-decoration:none}
+  #root{position:fixed; inset:0}
+  .root{position:fixed; inset:0; overflow:hidden}
+
+  /* film grain + vignette */
+  .root::after{
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:400;
+    background:radial-gradient(130% 120% at 50% 46%, transparent 52%, rgba(0,0,0,.55) 100%);
+    mix-blend-mode:multiply;
+  }
+  .root[data-grain="1"]::before{
+    content:""; position:fixed; inset:-50%; pointer-events:none; z-index:401; opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation:grain 1.2s steps(3) infinite;
+  }
+  @keyframes grain{
+    0%{transform:translate(0,0)} 33%{transform:translate(-6px,4px)}
+    66%{transform:translate(5px,-5px)} 100%{transform:translate(0,0)}
+  }
+
+  /* ── orbit (CSS 3D) ── */
+  .scene{position:absolute; left:50%; top:50%; width:0; height:0; z-index:10;
+    perspective:1100px; perspective-origin:50% 50%;
+    transform:translate(-50%,-50%);}
+  .orbit3d{position:absolute; left:0; top:0;
+    transform-style:preserve-3d;
+    transform:rotateX(var(--tilt)) rotateZ(var(--mrot,0deg));
+    transition:transform .6s cubic-bezier(.2,.7,.2,1);}
+  /* the flat tilted ring path */
+  .ring-path{position:absolute; left:50%; top:50%;
+    width:calc(var(--R) * 2); height:calc(var(--R) * 2);
+    margin:calc(-1 * var(--R)) 0 0 calc(-1 * var(--R)); border-radius:50%;
+    border:1px solid rgb(var(--ring-rgb) / .13);
+    box-shadow:0 0 90px -20px rgb(var(--ring-rgb) / .08) inset;
+    transform-style:preserve-3d;}
+  .ring-path[data-show="0"]{opacity:0;}
+  .spinner{position:absolute; left:0; top:0; transform-style:preserve-3d;
+    animation:spin var(--dur) linear infinite;}
+  @keyframes spin{to{transform:rotateZ(360deg);}}
+  .planet{position:absolute; left:0; top:0; transform-style:preserve-3d;
+    /* place on the ring: rotate to angle, push out along radius */
+    transform:rotateZ(var(--a)) translateX(var(--R));}
+  /* counter-rotate so the disc faces the camera regardless of spin/tilt */
+  .billboard{transform-style:preserve-3d;
+    transform:rotateZ(calc(-1 * var(--a)));
+    animation:counter var(--dur) linear infinite;}
+  @keyframes counter{from{transform:rotateZ(calc(-1 * var(--a)));}
+    to{transform:rotateZ(calc(-1 * var(--a) - 360deg));}}
+  .tiltfix{transform:rotateX(calc(-1 * var(--tilt)));
+    transition:transform .6s cubic-bezier(.2,.7,.2,1);}
+  .node-disc{
+    width:calc(66px * var(--logo,1)); height:calc(66px * var(--logo,1)); border-radius:50%;
+    display:grid; place-items:center; margin:calc(-33px * var(--logo,1));
+    background:radial-gradient(circle at 50% 36%, rgba(255,255,255,.10), rgba(255,255,255,.02) 70%, transparent);
+    border:1px solid rgb(var(--ring-rgb) / .15);
+    box-shadow:0 10px 34px -8px rgba(0,0,0,.75);
+    backdrop-filter:blur(2px);
+    color:#cfcfcf;}
+  .node-glyph{width:calc(32px * var(--logo,1)); height:calc(32px * var(--logo,1)); display:block;}
+
+  /* ── frame corners ── */
+  .frame{position:fixed; inset:0; z-index:210; pointer-events:none;}
+  .corner{position:absolute; display:flex; flex-direction:column; gap:4px; padding:28px 32px;
+    pointer-events:auto;}
+  .corner.tl{top:0; left:0; align-items:flex-start;}
+  .corner.tr{top:0; right:0; align-items:flex-end; text-align:right;}
+  .corner.bl{bottom:0; left:0; align-items:flex-start;}
+  .corner.br{bottom:0; right:0; align-items:flex-end; text-align:right;}
+  .mono-sm{font-size:12px; letter-spacing:.04em; text-transform:uppercase;}
+  .mono-xs{font-size:10.5px; letter-spacing:.07em; text-transform:uppercase;}
+  .dimmed{color:rgb(var(--fg-rgb) / .42);}
+  .status{display:flex; align-items:center; gap:7px; color:rgb(var(--fg-rgb) / .7);}
+  .pulse{width:6px; height:6px; border-radius:50%; background:#46d39a;
+    box-shadow:0 0 0 0 rgba(70,211,154,.6); animation:pulse 2.4s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(70,211,154,.5)}70%{box-shadow:0 0 0 7px rgba(70,211,154,0)}100%{box-shadow:0 0 0 0 rgba(70,211,154,0)}}
+  .links{flex-direction:row; gap:22px;}
+  .links a{font-size:12px; letter-spacing:.04em; text-transform:uppercase; position:relative;
+    color:rgb(var(--fg-rgb) / .75); transition:color .25s;}
+  .links a::after{content:""; position:absolute; left:0; bottom:-4px; height:1px; width:0;
+    background:var(--fg); transition:width .3s ease;}
+  .links a:hover{color:var(--fg);} .links a:hover::after{width:100%;}
+
+  /* ── hero ── */
+  .hero{position:fixed; inset:0; z-index:200; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; text-align:center; padding:0 24px;
+    pointer-events:none;}
+  .eyebrow{font-size:clamp(10px,1.25vw,13px); letter-spacing:.34em; text-transform:uppercase;
+    color:rgb(var(--fg-rgb) / .55); margin-bottom:clamp(46px,9vh,104px);}
+  .eyebrow .x{color:rgb(var(--fg-rgb) / .3); margin:0 .35em;}
+  .name{font-weight:700; line-height:.94; letter-spacing:-.01em; text-wrap:balance;}
+
+  .name--azariah{display:flex; flex-direction:column; align-items:center; gap:.34em;}
+  .name--azariah .paren{font-weight:400; font-size:clamp(12px,1.7vw,22px);
+    letter-spacing:.42em; text-transform:uppercase; padding-left:.42em;
+    color:rgb(var(--fg-rgb) / .42);}
+  .name--azariah .full{font-size:clamp(26px,7vw,86px); letter-spacing:-.005em;
+    white-space:nowrap; line-height:1;}
+
+  .name--inline{font-size:clamp(30px,8.5vw,108px); max-width:14ch;}
+  .name--inline .mid{font-weight:400; color:rgb(var(--fg-rgb) / .4);
+    font-size:.42em; letter-spacing:.06em; vertical-align:.18em;}
+
+  .name--mono{display:flex; flex-direction:column; gap:.1em; font-size:clamp(34px,9vw,116px);}
+  .name--mono .mid{font-weight:400; font-size:.4em; letter-spacing:.5em; padding-left:.5em;
+    color:rgb(var(--fg-rgb) / .4);}
+
+  .sub{margin-top:clamp(46px,9vh,104px); font-size:clamp(11px,1.4vw,15px);
+    letter-spacing:.02em; color:rgb(var(--fg-rgb) / .5); max-width:46ch;
+    line-height:1.6;}
+
+  /* ── [A] personal monogram ── */
+  .amark{display:inline-flex; align-items:baseline; font-weight:700; line-height:1;
+    letter-spacing:0; user-select:none;}
+  .amark-b{color:rgb(var(--fg-rgb) / .38); font-weight:400;
+    transition:color .35s ease;}
+  .amark-a{color:var(--fg); padding:0 .06em;}
+  .amark-rest{display:inline-block; overflow:hidden; max-width:0; opacity:0;
+    color:var(--fg); white-space:nowrap; vertical-align:baseline;
+    transition:max-width .5s cubic-bezier(.6,0,.2,1), opacity .35s ease;}
+  .amark--brand{font-size:20px; margin-bottom:5px; pointer-events:auto; cursor:none;}
+  .amark--brand .amark-a{padding:0 .04em;}
+  .amark--brand:hover .amark-rest{max-width:6.5em; opacity:1;}
+  .amark--brand:hover .amark-b{color:rgb(var(--fg-rgb) / .65);}
+  .amark--meteor{font-size:12px;}
+
+  /* ── meteor easter egg ── */
+  .meteor{position:fixed; left:0; top:0; z-index:205; pointer-events:none; will-change:transform,opacity;
+    animation:meteorMove var(--dur) cubic-bezier(.25,.6,.35,1) forwards;}
+  @keyframes meteorMove{
+    0%{transform:translate(var(--sx),var(--sy)); opacity:0;}
+    9%{opacity:1;}
+    82%{opacity:1;}
+    100%{transform:translate(var(--ex),var(--ey)); opacity:0;}
+  }
+  .streak{position:absolute; left:0; top:0; transform:rotate(var(--ma)); transform-origin:0 50%;}
+  .meteor-tail{position:absolute; right:0; top:50%; width:230px; height:2px;
+    transform:translateY(-50%);
+    background:linear-gradient(270deg, rgb(var(--fg-rgb) / .9), rgb(var(--fg-rgb) / .35) 32%, transparent 100%);
+    filter:blur(.4px);
+    box-shadow:0 0 14px 1px rgb(var(--fg-rgb) / .25);}
+  .meteor-head{position:absolute; left:0; top:50%; transform:translate(-50%,-50%) rotate(calc(-1 * var(--ma)));
+    width:24px; height:24px; border-radius:50%; display:grid; place-items:center;
+    background:radial-gradient(circle at 50% 45%, rgb(var(--fg-rgb) / .96), rgb(var(--fg-rgb) / .12) 70%, transparent);
+    box-shadow:0 0 22px 4px rgb(var(--fg-rgb) / .45);}
+  .meteor-head .amark-b{color:rgba(0,0,0,.55);}
+  .meteor-head .amark-a{color:#000;}
+
+  /* ── cursor ── */
+  .cursor-ring,.cursor-dot{position:fixed; top:0; left:0; pointer-events:none; z-index:2147483645;
+    border-radius:50%;}
+  .cursor-ring{width:30px; height:30px; border:1px solid var(--fg);
+    mix-blend-mode:difference; transition:opacity .3s ease;}
+  .cursor-dot{width:4px; height:4px; background:var(--fg); mix-blend-mode:difference;}
+
+  /* keep a real cursor over the tweaks chrome */
+  [data-omelette-chrome], [data-omelette-chrome] *{cursor:auto !important;}
+
+  @media (hover:none){ body{cursor:auto} .cursor-ring,.cursor-dot{display:none} }
+  @media (prefers-reduced-motion: reduce){ .root[data-grain="1"]::before{animation:none} }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel" src="glyphs.jsx"></script>
+  <script type="text/babel" src="app.jsx"></script>
+</body>
+</html>

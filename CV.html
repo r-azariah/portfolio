@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CV — Rahmani (Azariah) Malabre</title>
+<meta name="description" content="Curriculum vitae of Rahmani (Azariah) Malabre. Applied AI student at Wentworth Institute of Technology; Facility Operations Intern at Analog Devices. Boston, MA." />
+<meta name="author" content="Rahmani Malabre" />
+<link rel="canonical" href="https://rahmanimalabre.com/CV.html" />
+<meta name="theme-color" content="#000000" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="profile" />
+<meta property="og:title" content="CV — Rahmani (Azariah) Malabre" />
+<meta property="og:description" content="Applied AI student at Wentworth. Facility Operations Intern at Analog Devices. Boston, MA." />
+<meta property="og:url" content="https://rahmanimalabre.com/CV.html" />
+<meta name="twitter:card" content="summary" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --bg:#000;
+    --fg-rgb:244 244 245;
+    --fg:rgb(var(--fg-rgb));
+    --font:'Space Mono','SFMono-Regular',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg); color:var(--fg);
+    font-family:var(--font); font-size:15px; line-height:1.55;
+    -webkit-font-smoothing:antialiased; text-rendering:geometricPrecision;
+    cursor:none;
+    background-image:
+      linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+    background-size: 64px 64px;
+    background-position: -1px -1px;
+  }
+  a{color:inherit; text-decoration:none}
+  ::selection{background:rgba(244,244,245,.18); color:#fff}
+
+  /* ── header ── */
+  .top{position:sticky; top:0; z-index:50; display:grid;
+    grid-template-columns:1fr auto 1fr; align-items:center; gap:24px;
+    padding:22px clamp(24px,4vw,56px);
+    background:rgba(0,0,0,.62); backdrop-filter:blur(14px) saturate(1.1);
+    -webkit-backdrop-filter:blur(14px) saturate(1.1);
+    border-bottom:1px solid rgba(255,255,255,.06);}
+  .top a{transition:color .25s ease}
+  .top a:hover{color:#fff}
+
+  .brand{display:flex; flex-direction:column; gap:2px;}
+  .amark{display:inline-flex; align-items:baseline; font-weight:700; line-height:1; user-select:none;}
+  .amark-b{color:rgb(var(--fg-rgb) / .38); font-weight:400; transition:color .35s ease;}
+  .amark-a{color:var(--fg); padding:0 .12em;}
+  .amark-rest{display:inline-block; overflow:hidden; max-width:0; opacity:0;
+    color:var(--fg); white-space:nowrap; vertical-align:baseline;
+    transition:max-width .5s cubic-bezier(.6,0,.2,1), opacity .35s ease;}
+  .amark--brand{font-size:20px; cursor:none;}
+  .amark--brand .amark-a{padding:0 .04em;}
+  .amark--brand:hover .amark-rest{max-width:6.5em; opacity:1;}
+  .amark--brand:hover .amark-b{color:rgb(var(--fg-rgb) / .65);}
+  .brand-sub{font-size:10px; letter-spacing:.18em; text-transform:uppercase;
+    color:rgb(var(--fg-rgb) / .42);}
+
+  .crumb{justify-self:center; display:flex; align-items:center; gap:14px;
+    font-size:11px; letter-spacing:.28em; text-transform:uppercase;
+    color:rgb(var(--fg-rgb) / .5);}
+  .crumb a{color:rgb(var(--fg-rgb) / .5);}
+  .crumb a:hover{color:var(--fg);}
+  .crumb .here{color:var(--fg);}
+  .crumb .sep{opacity:.4}
+
+  .top-actions{justify-self:end; display:flex; gap:14px; align-items:center;}
+  .dl{display:inline-flex; gap:10px; align-items:center;
+    padding:10px 16px; border:1px solid rgb(var(--fg-rgb) / .35);
+    border-radius:999px; font-size:11px; letter-spacing:.22em; text-transform:uppercase;
+    transition:all .25s ease; cursor:none;}
+  .dl .arr{display:inline-block; transition:transform .3s ease}
+  .dl:hover{background:var(--fg); color:#000; border-color:var(--fg);}
+  .dl:hover .arr{transform:translateY(2px);}
+
+  /* ── hero block ── */
+  .wrap{max-width:1120px; margin:0 auto; padding:0 clamp(24px,4vw,56px);}
+  .hero{padding:clamp(64px,10vh,140px) 0 clamp(56px,8vh,96px);}
+  .eyebrow{font-size:11px; letter-spacing:.34em; text-transform:uppercase;
+    color:rgb(var(--fg-rgb) / .5); margin-bottom:28px;
+    display:flex; align-items:center; gap:14px;}
+  .eyebrow .dot{width:5px; height:5px; border-radius:50%; background:rgb(var(--fg-rgb) / .5);}
+  .hero h1{font-size:clamp(36px,6.5vw,76px); font-weight:700; line-height:1; letter-spacing:-.01em;}
+  .hero .role{margin-top:22px; font-size:clamp(13px,1.4vw,17px);
+    color:rgb(var(--fg-rgb) / .65); max-width:46ch;}
+  .hero .meta{margin-top:32px; display:flex; flex-wrap:wrap; gap:8px 24px;
+    font-size:12px; letter-spacing:.06em;
+    color:rgb(var(--fg-rgb) / .55);}
+  .hero .meta a{border-bottom:1px solid rgb(var(--fg-rgb) / .25);
+    padding-bottom:2px; transition:border-color .25s, color .25s; cursor:none;}
+  .hero .meta a:hover{color:var(--fg); border-color:var(--fg);}
+
+  /* ── sections ── */
+  .row{display:grid; grid-template-columns:220px 1fr; gap:56px;
+    padding:48px 0; border-top:1px solid rgb(var(--fg-rgb) / .08);}
+  @media (max-width:760px){
+    .row{grid-template-columns:1fr; gap:18px;}
+    .row-label{position:static !important;}
+  }
+  .row-label{display:flex; flex-direction:column; gap:6px;
+    position:sticky; top:88px; align-self:flex-start;
+    font-size:11px; letter-spacing:.28em; text-transform:uppercase;}
+  .row-num{color:rgb(var(--fg-rgb) / .35);}
+  .row-title{color:var(--fg);}
+  .row-body{color:rgb(var(--fg-rgb) / .82); font-size:15px; line-height:1.7;
+    max-width:62ch;}
+
+  /* ── job entries ── */
+  .job + .job{margin-top:36px;}
+  .job-head{display:flex; flex-wrap:wrap; justify-content:space-between;
+    align-items:baseline; gap:8px 18px; margin-bottom:10px;}
+  .job-head h3{font-size:15px; font-weight:700; letter-spacing:-.005em;}
+  .job-head h3 .sep{color:rgb(var(--fg-rgb) / .35); margin:0 .35em; font-weight:400;}
+  .job-time{font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:rgb(var(--fg-rgb) / .42); white-space:nowrap;}
+  .job-bullets{list-style:none; display:flex; flex-direction:column; gap:8px;
+    margin-top:6px;}
+  .job-bullets li{position:relative; padding-left:22px;
+    color:rgb(var(--fg-rgb) / .76);}
+  .job-bullets li::before{content:""; position:absolute; left:0; top:.74em;
+    width:10px; height:1px; background:rgb(var(--fg-rgb) / .45);}
+  .more{margin-top:30px; padding-top:22px; border-top:1px dashed rgb(var(--fg-rgb) / .14);
+    font-size:13px; color:rgb(var(--fg-rgb) / .6); line-height:1.65;}
+  .more strong{color:var(--fg); font-weight:700;}
+
+  /* ── project / cert / edu lists ── */
+  .stack{display:flex; flex-direction:column; gap:22px;}
+  .card{padding:0;}
+  .card h4{font-size:14px; font-weight:700; letter-spacing:-.003em; margin-bottom:4px;}
+  .card p{color:rgb(var(--fg-rgb) / .72); font-size:14px; line-height:1.6;}
+
+  /* skills tag cloud */
+  .tags{display:flex; flex-wrap:wrap; gap:8px;}
+  .tag{font-size:11px; letter-spacing:.06em; padding:6px 12px;
+    border:1px solid rgb(var(--fg-rgb) / .18); border-radius:999px;
+    color:rgb(var(--fg-rgb) / .78); transition:all .2s ease;}
+  .tag:hover{color:#000; background:var(--fg); border-color:var(--fg);}
+
+  /* footer */
+  footer{padding:80px 0 60px; margin-top:24px; border-top:1px solid rgb(var(--fg-rgb) / .08);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px;
+    font-size:11px; letter-spacing:.22em; text-transform:uppercase;
+    color:rgb(var(--fg-rgb) / .45);}
+  footer a:hover{color:var(--fg);}
+
+  /* cursor */
+  .cursor-ring,.cursor-dot{position:fixed; top:0; left:0; pointer-events:none;
+    z-index:2147483645; border-radius:50%;}
+  .cursor-ring{width:30px; height:30px; border:1px solid var(--fg);
+    mix-blend-mode:difference; transition:opacity .3s ease;}
+  .cursor-dot{width:4px; height:4px; background:var(--fg); mix-blend-mode:difference;}
+  @media (hover:none){body{cursor:auto} .cursor-ring,.cursor-dot{display:none}}
+
+  /* print: drop cursor + chrome, keep monochrome layout */
+  @media print{
+    body{cursor:auto; background:#fff; color:#000;}
+    .top, .top-actions, .cursor-ring, .cursor-dot, footer .copy{display:none !important;}
+    .row{border-color:#ddd;}
+    .row-body, .job-bullets li, .card p, .hero .role{color:#222 !important;}
+    a{color:#000 !important;}
+  }
+
+  /* (reveal animation removed — content visible immediately) */
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a href="index.html" class="brand" data-hover>
+    <span class="amark amark--brand"><span class="amark-b">[</span><span class="amark-a">A</span><span class="amark-rest">ZARIAH</span><span class="amark-b">]</span></span>
+    <span class="brand-sub">Rahmani Malabre</span>
+  </a>
+  <nav class="crumb">
+    <a href="index.html">Index</a>
+    <span class="sep">/</span>
+    <span class="here">CV</span>
+  </nav>
+  <div class="top-actions">
+    <a class="dl" href="resume.pdf" download="Rahmani-Malabre-Resume.pdf">
+      Download&nbsp;Resume <span class="arr">↓</span>
+    </a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero reveal">
+    <p class="eyebrow"><span class="dot"></span> Curriculum Vitae · 2026</p>
+    <h1>RAHMANI MALABRE</h1>
+    <p class="role">
+      Applied Artificial Intelligence · Data · IT · Business.
+      Designing and building with frontier models — research, systems, interfaces.
+    </p>
+    <p class="meta">
+      <span>Boston, MA</span>
+      <a href="mailto:rahmalabre@gmail.com">rahmalabre@gmail.com</a>
+      <a href="tel:+16178987910">+1 (617) 898-7910</a>
+      <a href="https://www.linkedin.com/in/rahmanim/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+      <a href="https://github.com/r-azariah" target="_blank" rel="noreferrer">GitHub ↗</a>
+    </p>
+  </section>
+
+  <section class="row reveal">
+    <div class="row-label"><span class="row-num">01</span><span class="row-title">Summary</span></div>
+    <div class="row-body">
+      Applied AI student and Facility Operations Intern at Analog Devices. I use AI and data to streamline workflows and solve business problems, while focusing my long-term vision on the frontier of robotics and Physical AI. My goal is to bridge the gap between digital intelligence and physical execution to develop the next generation of humanoid systems. Leveraging a strong foundation in data-science tools (Python, Excel) and professional certifications (Scrum Master), I focus on driving operational efficiency through data-driven insights and streamlined technical workflows.
+    </div>
+  </section>
+
+  <section class="row reveal">
+    <div class="row-label"><span class="row-num">02</span><span class="row-title">Experience</span></div>
+    <div class="row-body">
+
+      <article class="job">
+        <header class="job-head">
+          <h3>Analog Devices <span class="sep">/</span> Facility Operations Intern</h3>
+          <span class="job-time">Jan 2026 — Present · Wilmington, MA</span>
+        </header>
+        <ul class="job-bullets">
+          <li>Supports facility operations at Analog Devices' corporate headquarters — 2,800,000 sq ft across grounds, labs, fabs, offices, and specialized workspaces for 2,000 on-site employees, including the CEO and executive leadership.</li>
+          <li>Designed and deployed an audit-log parser for Serraview move data using AI-assisted development, supporting multi-site routing across Wilmington and Chelmsford with hotel-capacity tracking.</li>
+          <li>Created an interactive floor-mapping dashboard covering 99 employees across 11 departments, used by the facilities team for space-planning decisions.</li>
+          <li>Introduced AI-assisted workflows to the facilities team for reporting, data analysis, and operational planning.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <header class="job-head">
+          <h3>Asurion <span class="sep">/</span> In-Home Expert</h3>
+          <span class="job-time">May 2025 — Sep 2025 · Waltham, MA</span>
+        </header>
+        <ul class="job-bullets">
+          <li>Delivered personalized tech support and setup for phones, TVs, routers, and smart devices.</li>
+          <li>Assisted and educated customers while promoting product upgrades and service plans.</li>
+          <li>Traveled across multiple cities and states daily to complete service appointments.</li>
+          <li>Conducted space audits and updated architectural floor plans to ensure accuracy across facility records.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <header class="job-head">
+          <h3>Crocker Design Group <span class="sep">/</span> AutoCAD Civil Engineer · Site Design (COOP)</h3>
+          <span class="job-time">Feb 2022 — Jul 2022 · Hingham, MA</span>
+        </header>
+        <ul class="job-bullets">
+          <li>Created detailed site maps and layouts for client projects — gated communities, apartment complexes, commercial properties — ensuring precision and adherence to engineering standards.</li>
+          <li>Collaborated with senior engineers and architects to refine designs and address complex project requirements, applying AutoCAD expertise to streamline drafting, enhance accuracy, and shorten timelines.</li>
+          <li>Reviewed and analyzed site data to inform infrastructure designs, delivering functional and efficient layouts.</li>
+        </ul>
+      </article>
+
+      <p class="more">
+        <strong>More experience</strong> across sales and service:
+        Brooks Select Wine &amp; Spirits (Assistant Manager, ongoing family business), Footlocker (2.5 years),
+        certified lifeguard &amp; swim teacher, Target, and Baby E Toys.
+      </p>
+    </div>
+  </section>
+
+  <section class="row reveal">
+    <div class="row-label"><span class="row-num">03</span><span class="row-title">Projects</span></div>
+    <div class="row-body">
+      <div class="stack">
+        <div class="card">
+          <h4>VANTA</h4>
+          <p>AI-powered presentation and document builder. Designed product architecture, monetization model, and user flows. Currently in development with credit-based pricing across three tiers.</p>
+        </div>
+        <div class="card">
+          <h4>AndroidBot</h4>
+          <p>AI-powered Discord bot that controls a Windows PC with dual-monitor support and automated clicking. Built using AI-assisted development with the Claude API.</p>
+        </div>
+        <div class="card">
+          <h4>ADI Floor Mapping Dashboard</h4>
+          <p>Interactive visualization of office space across 11 departments, built for facility operations use at Analog Devices.</p>
+        </div>
+        <div class="card">
+          <h4>Crocker Design Group</h4>
+          <p>Site design work including Herb Chambers Porsche on Commonwealth Ave, and more.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="row reveal">
+    <div class="row-label"><span class="row-num">04</span><span class="row-title">Education</span></div>
+    <div class="row-body">
+      <div class="stack">
+        <div class="card">
+          <h4>Wentworth Institute of Technology</h4>
+          <p>Junior — Applied Artificial Intelligence (major) &amp; Data Science (minor).</p>
+        </div>
+        <div class="card">
+          <h4>Year Up United — Non-Profit</h4>
+          <p>Professionalism Course · Fall 2025 Business Fundamentals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="row reveal">
+    <div class="row-label"><span class="row-num">05</span><span class="row-title">Certifications</span></div>
+    <div class="row-body">
+      <div class="stack">
+        <div class="card">
+          <h4>Scrum Master Certified</h4>
+          <p>scrum.org · Attained 2025.</p>
+        </div>
+        <div class="card">
+          <h4>Excel Certified</h4>
+          <p>Microsoft · Attained 2025.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="row reveal">
+    <div class="row-label"><span class="row-num">06</span><span class="row-title">Skills</span></div>
+    <div class="row-body">
+      <div class="tags">
+        <span class="tag">AI-assisted development</span>
+        <span class="tag">Prompt engineering</span>
+        <span class="tag">Robotics</span>
+        <span class="tag">Python</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Excel</span>
+        <span class="tag">AutoCAD</span>
+        <span class="tag">Technical support</span>
+        <span class="tag">Data analysis</span>
+        <span class="tag">Engineering</span>
+        <span class="tag">Leadership</span>
+        <span class="tag">Teamwork</span>
+        <span class="tag">Problem solving</span>
+        <span class="tag">Communication</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="row reveal">
+    <div class="row-label"><span class="row-num">07</span><span class="row-title">Interests</span></div>
+    <div class="row-body">
+      <div class="stack">
+        <div class="card">
+          <h4>Market Investor</h4>
+          <p>Analyzing and investing across stocks, crypto, and options — building a diversified portfolio and capitalizing on market trends.</p>
+        </div>
+        <div class="card">
+          <h4>Tech Innovation</h4>
+          <p>Designing, upgrading, and personalizing technology to improve functionality and aesthetics. Building toward human-assist robotics and android development — currently exploring AI-powered device concepts under the brand name <strong>Azariah</strong>.</p>
+        </div>
+        <div class="card">
+          <h4>Beyond</h4>
+          <p>Content creation, game &amp; app development, and more.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="copy">© 2026 · Rahmani Malabre</span>
+    <span><a href="index.html" data-hover>← Back to portfolio</a></span>
+    <span><a href="resume.pdf" download="Rahmani-Malabre-Resume.pdf" data-hover>resume.pdf ↓</a></span>
+  </footer>
+
+</main>
+
+<div class="cursor-ring"></div>
+<div class="cursor-dot"></div>
+
+<!-- Structured data: CV / Person -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rahmani Malabre",
+  "alternateName": "Azariah",
+  "jobTitle": "Facility Operations Intern · Applied AI Student",
+  "worksFor": { "@type": "Organization", "name": "Analog Devices" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Wentworth Institute of Technology" },
+  "email": "mailto:rahmalabre@gmail.com",
+  "telephone": "+1-617-898-7910",
+  "address": { "@type": "PostalAddress", "addressLocality": "Boston", "addressRegion": "MA", "addressCountry": "US" },
+  "url": "https://rahmanimalabre.com/CV.html",
+  "sameAs": ["https://www.linkedin.com/in/rahmanim/", "https://github.com/r-azariah"]
+}
+</script>
+
+<script>
+  // Custom cursor — dot tracks raw pointer for minimal latency, ring lerps behind
+  (() => {
+    const ring = document.querySelector('.cursor-ring');
+    const dot = document.querySelector('.cursor-dot');
+    if (!ring || !dot) return;
+    const pos = { x: innerWidth/2, y: innerHeight/2 };
+    const rp = { ...pos };
+    let hovering = false;
+    const onDot = (e) => {
+      dot.style.transform = `translate(${e.clientX}px,${e.clientY}px) translate(-50%,-50%)`;
+    };
+    const onMove = (e) => {
+      pos.x = e.clientX; pos.y = e.clientY;
+      hovering = !!e.target.closest('a, button, [data-hover]');
+    };
+    const loop = () => {
+      rp.x += (pos.x - rp.x) * 0.18;
+      rp.y += (pos.y - rp.y) * 0.18;
+      ring.style.transform = `translate(${rp.x}px,${rp.y}px) translate(-50%,-50%) scale(${hovering ? 1.9 : 1})`;
+      ring.style.opacity = hovering ? '1' : '0.7';
+      requestAnimationFrame(loop);
+    };
+    const rawEvt = ('onpointerrawupdate' in window) ? 'pointerrawupdate' : 'pointermove';
+    window.addEventListener(rawEvt, onDot, { passive: true });
+    window.addEventListener('pointermove', onMove, { passive: true });
+    requestAnimationFrame(loop);
+  })();
+</script>
+
+</body>
+</html>

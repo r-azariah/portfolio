@@ -1,0 +1,9 @@
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Dev artifacts (kept locally, not deployed)
+screenshots/
+uploads/
