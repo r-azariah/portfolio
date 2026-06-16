@@ -6,13 +6,13 @@
 <title>CV — Rahmani (Azariah) Malabre</title>
 <meta name="description" content="Curriculum vitae of Rahmani (Azariah) Malabre. Applied AI student at Wentworth Institute of Technology; Facility Operations Intern at Analog Devices. Boston, MA." />
 <meta name="author" content="Rahmani Malabre" />
-<link rel="canonical" href="https://rahmanimalabre.com/CV.html" />
+<link rel="canonical" href="https://rahmanimalabre.dev/CV.html" />
 <meta name="theme-color" content="#000000" />
 <meta name="robots" content="index, follow" />
 <meta property="og:type" content="profile" />
 <meta property="og:title" content="CV — Rahmani (Azariah) Malabre" />
 <meta property="og:description" content="Applied AI student at Wentworth. Facility Operations Intern at Analog Devices. Boston, MA." />
-<meta property="og:url" content="https://rahmanimalabre.com/CV.html" />
+<meta property="og:url" content="https://rahmanimalabre.dev/CV.html" />
 <meta name="twitter:card" content="summary" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
@@ -31,7 +31,7 @@
   html{scroll-behavior:smooth}
   body{
     background:var(--bg); color:var(--fg);
-    font-family:var(--font); font-size:15px; line-height:1.55;
+    font-family:var(--font); font-size:16px; line-height:1.6;
     -webkit-font-smoothing:antialiased; text-rendering:geometricPrecision;
     cursor:none;
     background-image:
@@ -56,12 +56,13 @@
   .brand{display:flex; flex-direction:column; gap:2px;}
   .amark{display:inline-flex; align-items:baseline; font-weight:700; line-height:1; user-select:none;}
   .amark-b{color:rgb(var(--fg-rgb) / .38); font-weight:400; transition:color .35s ease;}
-  .amark-a{color:var(--fg); padding:0 .12em;}
+  .amark-a{color:var(--fg); padding:0 .06em;}
   .amark-rest{display:inline-block; overflow:hidden; max-width:0; opacity:0;
     color:var(--fg); white-space:nowrap; vertical-align:baseline;
     transition:max-width .5s cubic-bezier(.6,0,.2,1), opacity .35s ease;}
   .amark--brand{font-size:20px; cursor:none;}
-  .amark--brand .amark-a{padding:0 .04em;}
+  .amark--brand .amark-a{padding:0 0 0 .04em;}
+  .amark--brand .amark-rest{margin-left:-.04em;}
   .amark--brand:hover .amark-rest{max-width:6.5em; opacity:1;}
   .amark--brand:hover .amark-b{color:rgb(var(--fg-rgb) / .65);}
   .brand-sub{font-size:10px; letter-spacing:.18em; text-transform:uppercase;
@@ -102,10 +103,10 @@
   .hero .meta a:hover{color:var(--fg); border-color:var(--fg);}
 
   /* ── sections ── */
-  .row{display:grid; grid-template-columns:220px 1fr; gap:56px;
-    padding:48px 0; border-top:1px solid rgb(var(--fg-rgb) / .08);}
-  @media (max-width:760px){
-    .row{grid-template-columns:1fr; gap:18px;}
+  .row{display:grid; grid-template-columns:240px 1fr; gap:72px;
+    padding:64px 0; border-top:1px solid rgb(var(--fg-rgb) / .08);}
+  @media (max-width:820px){
+    .row{grid-template-columns:1fr; gap:22px; padding:48px 0;}
     .row-label{position:static !important;}
   }
   .row-label{display:flex; flex-direction:column; gap:6px;
@@ -113,32 +114,31 @@
     font-size:11px; letter-spacing:.28em; text-transform:uppercase;}
   .row-num{color:rgb(var(--fg-rgb) / .35);}
   .row-title{color:var(--fg);}
-  .row-body{color:rgb(var(--fg-rgb) / .82); font-size:15px; line-height:1.7;
-    max-width:62ch;}
+  .row-body{color:rgb(var(--fg-rgb) / .82); font-size:16px; line-height:1.78;
+    max-width:70ch;}
 
   /* ── job entries ── */
-  .job + .job{margin-top:36px;}
+  .job + .job{margin-top:52px;}
   .job-head{display:flex; flex-wrap:wrap; justify-content:space-between;
-    align-items:baseline; gap:8px 18px; margin-bottom:10px;}
-  .job-head h3{font-size:15px; font-weight:700; letter-spacing:-.005em;}
+    align-items:baseline; gap:8px 18px; margin-bottom:14px;}
+  .job-head h3{font-size:16px; font-weight:700; letter-spacing:-.005em;}
   .job-head h3 .sep{color:rgb(var(--fg-rgb) / .35); margin:0 .35em; font-weight:400;}
   .job-time{font-size:11px; letter-spacing:.14em; text-transform:uppercase;
     color:rgb(var(--fg-rgb) / .42); white-space:nowrap;}
-  .job-bullets{list-style:none; display:flex; flex-direction:column; gap:8px;
+  .job-bullets{list-style:none; display:flex; flex-direction:column; gap:12px;
     margin-top:6px;}
-  .job-bullets li{position:relative; padding-left:22px;
-    color:rgb(var(--fg-rgb) / .76);}
-  .job-bullets li::before{content:""; position:absolute; left:0; top:.74em;
-    width:10px; height:1px; background:rgb(var(--fg-rgb) / .45);}
-  .more{margin-top:30px; padding-top:22px; border-top:1px dashed rgb(var(--fg-rgb) / .14);
-    font-size:13px; color:rgb(var(--fg-rgb) / .6); line-height:1.65;}
+  .job-bullets li{position:relative; padding-left:24px;
+    color:rgb(var(--fg-rgb) / .78); line-height:1.7;}
+  .job-bullets li::before{content:""; position:absolute; left:0; top:.78em;
+    width:12px; height:1px; background:rgb(var(--fg-rgb) / .45);}
+  .more{margin-top:36px; padding-top:26px; border-top:1px dashed rgb(var(--fg-rgb) / .14);
+    font-size:14px; color:rgb(var(--fg-rgb) / .65); line-height:1.7;}
   .more strong{color:var(--fg); font-weight:700;}
 
   /* ── project / cert / edu lists ── */
-  .stack{display:flex; flex-direction:column; gap:22px;}
-  .card{padding:0;}
-  .card h4{font-size:14px; font-weight:700; letter-spacing:-.003em; margin-bottom:4px;}
-  .card p{color:rgb(var(--fg-rgb) / .72); font-size:14px; line-height:1.6;}
+  .stack{display:flex; flex-direction:column; gap:28px;}
+  .card h4{font-size:15px; font-weight:700; letter-spacing:-.003em; margin-bottom:6px;}
+  .card p{color:rgb(var(--fg-rgb) / .74); font-size:15px; line-height:1.7;}
 
   /* skills tag cloud */
   .tags{display:flex; flex-wrap:wrap; gap:8px;}
@@ -154,12 +154,13 @@
     color:rgb(var(--fg-rgb) / .45);}
   footer a:hover{color:var(--fg);}
 
-  /* cursor */
+  /* ── cursor ── */
   .cursor-ring,.cursor-dot{position:fixed; top:0; left:0; pointer-events:none;
-    z-index:2147483645; border-radius:50%;}
-  .cursor-ring{width:30px; height:30px; border:1px solid var(--fg);
-    mix-blend-mode:difference; transition:opacity .3s ease;}
-  .cursor-dot{width:4px; height:4px; background:var(--fg); mix-blend-mode:difference;}
+    z-index:2147483645; border-radius:50%; will-change:transform;}
+  .cursor-ring{width:30px; height:30px; border:1px solid rgb(var(--fg-rgb) / .85);
+    transition:opacity .3s ease;}
+  .cursor-dot{width:5px; height:5px; background:#fff;
+    box-shadow:0 0 8px rgba(255,255,255,.45);}
   @media (hover:none){body{cursor:auto} .cursor-ring,.cursor-dot{display:none}}
 
   /* print: drop cursor + chrome, keep monochrome layout */
@@ -185,6 +186,8 @@
     <a href="index.html">Index</a>
     <span class="sep">/</span>
     <span class="here">CV</span>
+    <span class="sep">/</span>
+    <a href="Projects.html">Projects</a>
   </nav>
   <div class="top-actions">
     <a class="dl" href="resume.pdf" download="Rahmani-Malabre-Resume.pdf">
@@ -204,7 +207,7 @@
     </p>
     <p class="meta">
       <span>Boston, MA</span>
-      <a href="mailto:rahmalabre@gmail.com">rahmalabre@gmail.com</a>
+      <a href="/cdn-cgi/l/email-protection#2755464f4a464b4645554267404a464e4b0944484a"><span class="__cf_email__" data-cfemail="83f1e2ebeee2efe2e1f1e6c3e4eee2eaefade0ecee">[email&#160;protected]</span></a>
       <a href="tel:+16178987910">+1 (617) 898-7910</a>
       <a href="https://www.linkedin.com/in/rahmanim/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
       <a href="https://github.com/r-azariah" target="_blank" rel="noreferrer">GitHub ↗</a>
@@ -378,7 +381,7 @@
 <div class="cursor-dot"></div>
 
 <!-- Structured data: CV / Person -->
-<script type="application/ld+json">
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -390,7 +393,7 @@
   "email": "mailto:rahmalabre@gmail.com",
   "telephone": "+1-617-898-7910",
   "address": { "@type": "PostalAddress", "addressLocality": "Boston", "addressRegion": "MA", "addressCountry": "US" },
-  "url": "https://rahmanimalabre.com/CV.html",
+  "url": "https://rahmanimalabre.dev/CV.html",
   "sameAs": ["https://www.linkedin.com/in/rahmanim/", "https://github.com/r-azariah"]
 }
 </script>

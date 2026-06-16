@@ -13,12 +13,16 @@ const PATHS = {
     "M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81",
   perplexity:
     "M22.3977 7.0896h-2.3106V.0676l-7.5094 6.3542V.1577h-1.1554v6.1966L4.4904 0v7.0896H1.6023v10.3976h2.8882V24l6.932-6.3591v6.2005h1.1554v-6.0469l6.9318 6.1807v-6.4879h2.8882V7.0896zm-3.4657-4.531v4.531h-5.355l5.355-4.531zm-13.2862.0676 4.8691 4.4634H5.6458V2.6262zM2.7576 16.332V8.245h7.8476l-6.1149 6.1147v1.9723H2.7576zm2.8882 5.0404v-3.8852h.0001v-2.6488l5.7763-5.7764v7.0111l-5.7764 5.2993zm12.7086.0248-5.7766-5.1509V9.0618l5.7766 5.7766v6.5588zm2.8882-5.0652h-1.733v-1.9723L13.3948 8.245h7.8478v8.087z",
+  lovable:
+    "M36.069 0c19.92 0 36.068 16.155 36.068 36.084v13.713h12.004c19.92 0 36.069 16.156 36.069 36.084 0 19.928-16.149 36.083-36.069 36.083H0v-85.88C0 16.155 16.148 0 36.069 0Z",
 };
+
+const VIEWBOX = { lovable: "-19 -3 140 140" };
 
 function makeGlyph(key, label) {
   return function Glyph(props) {
     return (
-      <svg viewBox="0 0 24 24" role="img" aria-label={label + ' logo'} {...props}>
+      <svg viewBox={VIEWBOX[key] || "0 0 24 24"} role="img" aria-label={label + ' logo'} {...props}>
         <path d={PATHS[key]} fill="currentColor" />
       </svg>
     );
@@ -26,10 +30,36 @@ function makeGlyph(key, label) {
 }
 
 const LOGOS = [
-  { id: 'claude',     label: 'Claude',     Glyph: makeGlyph('claude', 'Claude') },
-  { id: 'openai',     label: 'ChatGPT',    Glyph: makeGlyph('openai', 'OpenAI') },
-  { id: 'gemini',     label: 'Gemini',     Glyph: makeGlyph('gemini', 'Gemini') },
-  { id: 'perplexity', label: 'Perplexity', Glyph: makeGlyph('perplexity', 'Perplexity') },
+  {
+    id: 'claude', label: 'Claude', category: 'Code',
+    description: 'Primary partner for building — pair programming, design work, long-form thinking. Lives in the editor and the browser.',
+    url: 'https://claude.ai',
+    Glyph: makeGlyph('claude', 'Claude')
+  },
+  {
+    id: 'codex', label: 'Codex', category: 'Code',
+    description: 'Terminal-resident agent for repo refactors, scripted tasks, and quick prototypes. Headless runs in the background while I work.',
+    url: 'https://openai.com/codex',
+    Glyph: makeGlyph('openai', 'Codex')
+  },
+  {
+    id: 'gemini', label: 'Gemini', category: 'Administrative',
+    description: 'Lives inside Workspace — drafts emails, summarizes threads, untangles calendars, keeps the operational layer of the day running.',
+    url: 'https://gemini.google.com',
+    Glyph: makeGlyph('gemini', 'Gemini')
+  },
+  {
+    id: 'perplexity', label: 'Perplexity', category: 'Finance',
+    description: 'Markets, filings, and source-cited research. Goes-to for tracking tickers, earnings, and primary-source lookups with receipts.',
+    url: 'https://www.perplexity.ai',
+    Glyph: makeGlyph('perplexity', 'Perplexity')
+  },
+  {
+    id: 'lovable', label: 'Lovable', category: 'Prototype',
+    description: 'Conversational app builder — a full-stack web app from a prompt, iterated in chat and deployed in one click. Reach-for-it for fast prototypes and throwaway tools.',
+    url: 'https://lovable.dev',
+    Glyph: makeGlyph('lovable', 'Lovable')
+  },
 ];
 
 Object.assign(window, { LOGOS });
