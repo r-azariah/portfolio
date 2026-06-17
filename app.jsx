@@ -128,18 +128,27 @@ function useBlackHoleSuck(bhRef) {
       }, 700);
     };
 
-    const onMove = (e) => {
+    // Cache the hole's geometry so pointermove never forces a synchronous
+    // reflow (getBoundingClientRect per move was the main input-lag source).
+    const geo = { cx: 0, cy: 0, r: 0 };
+    const measure = () => {
       if (!bhRef.current) return;
       const br = bhRef.current.getBoundingClientRect();
-      const bx = br.left + br.width / 2;
-      const by = br.top + br.height / 2;
-      const r = br.width / 2;
-      const ref = orig.v || { x: bx, y: by, r };
+      geo.cx = br.left + br.width / 2;
+      geo.cy = br.top + br.height / 2;
+      geo.r = br.width / 2;
+    };
+    measure();
+    const remeasure = () => measure();
+
+    const onMove = (e) => {
+      const ref = orig.v || { x: geo.cx, y: geo.cy, r: geo.r };
+      if (!ref.r) return;
       const inside = Math.hypot(e.clientX - ref.x, e.clientY - ref.y) < ref.r * 0.25;
 
       if (inside && phase.v === 'idle') {
         phase.v = 'charging';
-        orig.v = { x: bx, y: by, r };
+        orig.v = { x: geo.cx, y: geo.cy, r: geo.r };
         charge.timer = setTimeout(startGrow, 10000);
       } else if (!inside && phase.v === 'charging') {
         clearTimeout(charge.timer);
@@ -150,8 +159,12 @@ function useBlackHoleSuck(bhRef) {
     };
 
     window.addEventListener('pointermove', onMove, { passive: true });
+    window.addEventListener('scroll', remeasure, { passive: true });
+    window.addEventListener('resize', remeasure, { passive: true });
     return () => {
       window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('scroll', remeasure);
+      window.removeEventListener('resize', remeasure);
       clearTimeout(charge.timer);
       clearTimeout(charge.capTimer);
       cancelAnimationFrame(anim.raf);
@@ -262,10 +275,13 @@ function OrbitScene({ tweaks, paused, onSelect }) {
   React.useEffect(() => {
     const el = sceneRef.current;
     if (!el) return;
+    // Coalesce mouse-driven rotation to one write per frame.
+    let mx = 0, queued = false;
+    const apply = () => { queued = false; el.style.setProperty('--mrot', (mx * 16).toFixed(2) + 'deg'); };
     const onMove = (e) => {
-      if (!t.reactToMouse) {el.style.setProperty('--mrot', '0deg');return;}
-      const mx = e.clientX / window.innerWidth - 0.5;
-      el.style.setProperty('--mrot', (mx * 16).toFixed(2) + 'deg');
+      if (!t.reactToMouse) { el.style.setProperty('--mrot', '0deg'); return; }
+      mx = e.clientX / window.innerWidth - 0.5;
+      if (!queued) { queued = true; requestAnimationFrame(apply); }
     };
     window.addEventListener('pointermove', onMove, { passive: true });
     return () => window.removeEventListener('pointermove', onMove);
@@ -334,31 +350,28 @@ function Cursor() {
   React.useEffect(() => {
     const pos = { x: innerWidth / 2, y: innerHeight / 2 };
     const rp = { ...pos };
-    let hovering = false,raf;
-    const onDot = (e) => {
-      if (dot.current) dot.current.style.transform =
-      `translate(${e.clientX}px,${e.clientY}px) translate(-50%,-50%)`;
-    };
+    let hovering = false, raf;
+    // Single coalesced listener: store latest position, do ALL style writes in
+    // one rAF tick. No pointerrawupdate flood, no per-event reflow.
     const onMove = (e) => {
-      pos.x = e.clientX;pos.y = e.clientY;
-      hovering = !!e.target.closest('a, button, [data-hover]');
+      pos.x = e.clientX; pos.y = e.clientY;
+      hovering = !!(e.target && e.target.closest && e.target.closest('a, button, [data-hover]'));
     };
     const loop = () => {
-      rp.x += (pos.x - rp.x) * 0.18;
-      rp.y += (pos.y - rp.y) * 0.18;
+      if (dot.current)
+        dot.current.style.transform = `translate(${pos.x}px,${pos.y}px) translate(-50%,-50%)`;
+      rp.x += (pos.x - rp.x) * 0.22;
+      rp.y += (pos.y - rp.y) * 0.22;
       if (ring.current) {
         ring.current.style.transform =
-        `translate(${rp.x}px,${rp.y}px) translate(-50%,-50%) scale(${hovering ? 1.9 : 1})`;
+          `translate(${rp.x}px,${rp.y}px) translate(-50%,-50%) scale(${hovering ? 1.9 : 1})`;
         ring.current.style.opacity = hovering ? '1' : '0.7';
       }
       raf = requestAnimationFrame(loop);
     };
-    const raw = 'onpointerrawupdate' in window ? 'pointerrawupdate' : 'pointermove';
-    window.addEventListener(raw, onDot, { passive: true });
     window.addEventListener('pointermove', onMove, { passive: true });
     raf = requestAnimationFrame(loop);
     return () => {
-      window.removeEventListener(raw, onDot);
       window.removeEventListener('pointermove', onMove);
       cancelAnimationFrame(raf);
     };
@@ -491,7 +504,7 @@ function ProjectsPreview({ previewRef }) {
             <a href="mailto:rahmalabre@gmail.com" data-hover>Email ↗</a>
             <a href="CV.html" data-hover>CV ↗</a>
           </div>
-          <span className="proj-connect-meta">Boston, MA · Open to work</span>
+          <span className="proj-connect-meta">Boston, MA · Considering opportunities</span>
         </div>
       </div>
     </div>);
@@ -557,8 +570,8 @@ function App() {
           <a className="nav-link" href="CV.html" data-hover>CV ↗</a>
         </div>
         <div className="corner bl">
-          <span className="mono-xs dimmed">BOSTON, MA · OPEN TO REMOTE</span>
-          <span className="mono-xs status"><i className="pulse" /> Open to work · In university</span>
+          <span className="mono-xs dimmed">BOSTON, MA · IN UNIVERSITY · OPEN TO REMOTE</span>
+          <span className="mono-xs status status--considering"><i className="pulse" /> Considering opportunities · Currently employed</span>
         </div>
         <nav className="corner br links">
           <a href="https://www.linkedin.com/in/rahmanim/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
