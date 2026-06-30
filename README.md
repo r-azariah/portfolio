@@ -1,5 +1,5 @@
 # Rahmani Malabre — Personal Portfolio
 
-Personal portfolio of Rahmani (Azariah) Malabre — Applied AI & Data Science.
+Personal portfolio of Rahmani (AZARIAH) Malabre — Applied AI & Data Science.
 
 Live: **rahmanimalabre.dev** 
