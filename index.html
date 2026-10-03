@@ -215,6 +215,7 @@
   /* ── orbit (CSS 3D) ── */
   .scene{position:absolute; left:50%; top:50%; width:0; height:0; z-index:10;
     perspective:1100px; perspective-origin:50% 50%;
+    isolation:isolate;
     will-change:transform, opacity;
     transform:translate(-50%,-50%);}
   .orbit3d{position:absolute; left:0; top:0;

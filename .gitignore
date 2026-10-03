@@ -7,3 +7,9 @@ Thumbs.db
 # Dev artifacts (kept locally, not deployed)
 screenshots/
 uploads/
+
+# Local hosting credentials and dependency caches
+.vercel/
+.env
+.env.*
+node_modules/
